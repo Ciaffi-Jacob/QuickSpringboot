@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Entity;
 
-    //object that Springboot mannipulates
+    //object that Springboot manipulates
 @Entity
 public class Person {
         //primary key of the entity
