@@ -8,9 +8,11 @@ import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Entity;
 
-@Entity
+@Entity //object that Springboot mannipulates
 public class Person {
+        //primary key of the entity
     @Id
+        //used in conjunction with @Id to generate values
     @GeneratedValue
     private Long id;
 
@@ -18,9 +20,11 @@ public class Person {
     private String lastName;
     private Date birthDate;
 
+        //empty constructor
     public Person() {
     }
 
+        //Person constructor
     public Person(Long id, String firstName, String lastName, Date birthDate) {
         this.id = id;
         this.firstName = firstName;
@@ -28,6 +32,7 @@ public class Person {
         this.birthDate = birthDate;
     }
 
+        //getters and setters
     public Long getId() {
         return id;
     }
