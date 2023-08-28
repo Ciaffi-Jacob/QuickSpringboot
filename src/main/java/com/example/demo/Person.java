@@ -1,14 +1,12 @@
 package com.example.demo;
 
-import jakarta.persistence.GeneratedValue;
-
 import java.util.Date;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
-    //object that Springboot manipulates
+//object that Springboot manipulates
 @Entity
 public class Person {
         //primary key of the entity
