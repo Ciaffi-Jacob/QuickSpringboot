@@ -12,30 +12,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+    //indicates this specific class is the controller class
+    //this allows the main class "PersonController" to have another instantiation
 @Controller
 public class PersonController {
     private PersonService service;
 
+            //Automatic dependency injection
         @Autowired
         public PersonController(PersonService service)  {
             this.service = service;
         }
 
+            //connects this method to the url endpoint
         @PostMapping(value = "/create")
         public ResponseEntity<Person> create(@RequestBody Person person)  {
             return new ResponseEntity<Person>(service.create(person), HttpStatus.CREATED);
         }
 
+            //connects this method to the url endpoint
         @GetMapping(value = "/read/{id}")
         public ResponseEntity<Person> readById(@PathVariable Long id) {
             return new ResponseEntity<>(service.readById(id), HttpStatus.OK);
         }
 
+            //connects this method to the url endpoint
         @GetMapping(value = "/readAll")
         public ResponseEntity<List<Person>> readAll()   {
             return new ResponseEntity<>(service.readAll(), HttpStatus.OK);
         }
 
+            //connects this method to the url endpoint
         @PutMapping(value = "/update/{id}")
         public ResponseEntity<Person> updateById(
                 @PathVariable Long id,
@@ -43,6 +50,7 @@ public class PersonController {
             return new ResponseEntity<Person>(service.update(id, newData), HttpStatus.OK);
         }
 
+            //connects this method to the url endpoint
         @DeleteMapping(value = "/delete/{id}")
         public ResponseEntity<Person> deleteById(@PathVariable Long id) {
             return new ResponseEntity<>(service.deleteById(id), HttpStatus.OK);
